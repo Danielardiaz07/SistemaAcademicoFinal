@@ -95,4 +95,30 @@ public class Main {
         System.out.println("No se encontró ninguna asignatura con el código: " + codigoBuscado);
     }
     
+    static void eliminarAsignatura() {
+        System.out.println("=== Eliminar Asignatura ===");
+
+        System.out.print("Ingrese el código de la asignatura a eliminar: ");
+        String codigoBuscado = scanner.nextLine();
+
+        for (Asignatura a : listaAsignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codigoBuscado)) {
+                System.out.println("\nAsignatura encontrada:");
+                System.out.println(a);
+                System.out.print("\nEsta seguro que desea eliminar esta asignatura? (s/n): ");
+                String confirmacion = scanner.nextLine();
+
+                if (confirmacion.equalsIgnoreCase("s")) {
+                    listaAsignaturas.remove(a);
+                    System.out.println("\nAsignatura eliminada exitosamente.");
+                } else {
+                    System.out.println("\nEliminacion cancelada.");
+                }
+                return;
+            }
+        }
+
+        System.out.println("No se encontro ninguna asignatura con el codigo: " + codigoBuscado);
+    }
+    
 }
