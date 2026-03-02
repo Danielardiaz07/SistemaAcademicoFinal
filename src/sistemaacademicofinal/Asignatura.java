@@ -48,4 +48,12 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Código: " + codigo +
+               "\nNombre: " + nombre +
+               "\nCréditos: " + creditos +
+               "\nDocente: " + docente;
+    }
+    
 }
