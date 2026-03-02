@@ -59,4 +59,13 @@ public class Estudiante {
         this.semestre = semestre;
     }
     
+    @Override
+    public String toString() {
+        return "Código: " + codigo + 
+               "\nNombre: " + nombre + 
+               "\nApellido: " + apellido + 
+               "\nEdad: " + edad + 
+               "\nSemestre: " + semestre;
+    }
+
 }
