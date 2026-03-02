@@ -49,6 +49,12 @@ public class Nota {
         this.valor = valor;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Estudiante: " + estudiante.getNombre() + " " + estudiante.getApellido() +
+               "\nAsignatura: " + asignatura.getNombre() +
+               "\nValor: " + valor +
+               "\nPeriodo: " + periodo;
+    }
     
 }
