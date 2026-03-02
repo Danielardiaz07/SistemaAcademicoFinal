@@ -91,6 +91,38 @@ public class Main {
         System.out.println(estudiante);
     }
     
+    static void listarEstudiantes() {
+    System.out.println("=== Lista de Estudiantes ===");
+
+    if (listaEstudiantes.isEmpty()) {
+        System.out.println("No hay estudiantes registrados.");
+        return;
+    }
+
+    for (Estudiante e : listaEstudiantes) {
+        System.out.println("----------------------------");
+        System.out.println(e);
+    }
+    System.out.println("----------------------------");
+    System.out.println("Total: " + listaEstudiantes.size() + " estudiante(s).");
+}
+
+static void buscarEstudiante() {
+    System.out.println("=== Buscar Estudiante ===");
+
+    System.out.print("Ingrese el codigo a buscar: ");
+    String codigoBuscado = scanner.nextLine();
+
+    for (Estudiante e : listaEstudiantes) {
+        if (e.getCodigo().equalsIgnoreCase(codigoBuscado)) {
+            System.out.println("\nEstudiante encontrado:");
+            System.out.println(e);
+            return;
+        }
+    }
+
+    System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
+}
     static void registrarAsignatura() {
         System.out.println("=== Registrar Asignatura ===");
 
