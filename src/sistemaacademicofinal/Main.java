@@ -107,22 +107,61 @@ public class Main {
     System.out.println("Total: " + listaEstudiantes.size() + " estudiante(s).");
 }
 
-static void buscarEstudiante() {
-    System.out.println("=== Buscar Estudiante ===");
+    static void buscarEstudiante() {
+        System.out.println("=== Buscar Estudiante ===");
 
-    System.out.print("Ingrese el codigo a buscar: ");
-    String codigoBuscado = scanner.nextLine();
+        System.out.print("Ingrese el codigo a buscar: ");
+        String codigoBuscado = scanner.nextLine();
 
-    for (Estudiante e : listaEstudiantes) {
-        if (e.getCodigo().equalsIgnoreCase(codigoBuscado)) {
-            System.out.println("\nEstudiante encontrado:");
-            System.out.println(e);
-            return;
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equalsIgnoreCase(codigoBuscado)) {
+                System.out.println("\nEstudiante encontrado:");
+                System.out.println(e);
+                return;
+            }
         }
+
+        System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
     }
 
-    System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
-}
+    static void actualizarEstudiante() {
+        System.out.println("=== Actualizar Estudiante ===");
+
+        System.out.print("Ingrese el codigo del estudiante a actualizar: ");
+        String codigoBuscado = scanner.nextLine();
+
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equalsIgnoreCase(codigoBuscado)) {
+                System.out.println("\nEstudiante encontrado:");
+                System.out.println(e);
+
+                System.out.println("\nIngrese los nuevos datos (Enter para mantener el valor actual):");
+
+                System.out.print("Nuevo nombre [" + e.getNombre() + "]: ");
+                String nuevoNombre = scanner.nextLine();
+                if (!nuevoNombre.isEmpty()) e.setNombre(nuevoNombre);
+
+                System.out.print("Nuevo apellido [" + e.getApellido() + "]: ");
+                String nuevoApellido = scanner.nextLine();
+                if (!nuevoApellido.isEmpty()) e.setApellido(nuevoApellido);
+
+                System.out.print("Nueva edad [" + e.getEdad() + "]: ");
+                String nuevaEdad = scanner.nextLine();
+                if (!nuevaEdad.isEmpty()) e.setEdad(Integer.parseInt(nuevaEdad));
+
+                System.out.print("Nuevo semestre [" + e.getSemestre() + "]: ");
+                String nuevoSemestre = scanner.nextLine();
+                if (!nuevoSemestre.isEmpty()) e.setSemestre(Integer.parseInt(nuevoSemestre));
+
+                System.out.println("\nEstudiante actualizado exitosamente:");
+                System.out.println(e);
+                return;
+            }
+        }
+
+        System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
+    }
+
     static void registrarAsignatura() {
         System.out.println("=== Registrar Asignatura ===");
 
