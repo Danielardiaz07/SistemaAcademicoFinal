@@ -65,6 +65,32 @@ public class Main {
         return Integer.parseInt(scanner.nextLine());
     }
     
+    
+    static void registrarEstudiante() {
+        System.out.println("=== Registrar Estudiante ===");
+
+        System.out.print("Ingrese el codigo: ");
+        String codigo = scanner.nextLine();
+
+        System.out.print("Ingrese el nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingrese el apellido: ");
+        String apellido = scanner.nextLine();
+
+        System.out.print("Ingrese la edad: ");
+        int edad = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Ingrese el semestre: ");
+        int semestre = Integer.parseInt(scanner.nextLine());
+
+        Estudiante estudiante = new Estudiante(codigo, nombre, apellido, edad, semestre);
+        listaEstudiantes.add(estudiante);
+
+        System.out.println("\nEstudiante registrado exitosamente.");
+        System.out.println(estudiante);
+    }
+    
     static void registrarAsignatura() {
         System.out.println("=== Registrar Asignatura ===");
 
