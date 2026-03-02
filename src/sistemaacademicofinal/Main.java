@@ -161,28 +161,54 @@ public class Main {
 
         System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
     }
+    
+    static void eliminarEstudiante() {
+        System.out.println("=== Eliminar Estudiante ===");
 
-    static void registrarAsignatura() {
-        System.out.println("=== Registrar Asignatura ===");
+        System.out.print("Ingrese el codigo del estudiante a eliminar: ");
+        String codigoBuscado = scanner.nextLine();
 
-        System.out.print("Ingrese el código: ");
-        String codigo = scanner.nextLine();
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equalsIgnoreCase(codigoBuscado)) {
+                System.out.println("\nEstudiante encontrado:");
+                System.out.println(e);
+                System.out.print("\nEsta seguro que desea eliminar este estudiante? (s/n): ");
+                String confirmacion = scanner.nextLine();
 
-        System.out.print("Ingrese el nombre: ");
-        String nombre = scanner.nextLine();
+                if (confirmacion.equalsIgnoreCase("s")) {
+                    listaEstudiantes.remove(e);
+                    System.out.println("\nEstudiante eliminado exitosamente.");
+                } else {
+                    System.out.println("\nEliminacion cancelada.");
+                }
+                return;
+            }
+        }
 
-        System.out.print("Ingrese los créditos: ");
-        int creditos = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Ingrese el docente: ");
-        String docente = scanner.nextLine();
-
-        Asignatura asignatura = new Asignatura(codigo, nombre, creditos, docente);
-        listaAsignaturas.add(asignatura);
-
-        System.out.println("\nAsignatura registrada exitosamente.");
-        System.out.println(asignatura);
+        System.out.println("No se encontro ningun estudiante con el codigo: " + codigoBuscado);
     }
+
+        static void registrarAsignatura() {
+            System.out.println("=== Registrar Asignatura ===");
+
+            System.out.print("Ingrese el código: ");
+            String codigo = scanner.nextLine();
+
+            System.out.print("Ingrese el nombre: ");
+            String nombre = scanner.nextLine();
+
+            System.out.print("Ingrese los créditos: ");
+            int creditos = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Ingrese el docente: ");
+            String docente = scanner.nextLine();
+
+            Asignatura asignatura = new Asignatura(codigo, nombre, creditos, docente);
+            listaAsignaturas.add(asignatura);
+
+            System.out.println("\nAsignatura registrada exitosamente.");
+            System.out.println(asignatura);
+        }
     
     static void listarAsignaturas() {
         System.out.println("=== Lista de Asignaturas ===");
