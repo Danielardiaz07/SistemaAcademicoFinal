@@ -121,4 +121,55 @@ public class Main {
         System.out.println("No se encontro ninguna asignatura con el codigo: " + codigoBuscado);
     }
     
+    static void registrarNota() {
+        System.out.println("=== Registrar Nota ===");
+
+        System.out.print("Ingrese el codigo del estudiante: ");
+        String codigoEstudiante = scanner.nextLine();
+
+        Estudiante estudianteEncontrado = null;
+        for (Estudiante e : listaEstudiantes) {
+            if (e.getCodigo().equalsIgnoreCase(codigoEstudiante)) {
+                estudianteEncontrado = e;
+                break;
+            }
+        }
+
+        if (estudianteEncontrado == null) {
+            System.out.println("No se encontro ningun estudiante con ese codigo.");
+            return;
+        }
+
+        System.out.print("Ingrese el codigo de la asignatura: ");
+        String codigoAsignatura = scanner.nextLine();
+
+        Asignatura asignaturaEncontrada = null;
+        for (Asignatura a : listaAsignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codigoAsignatura)) {
+                asignaturaEncontrada = a;
+                break;
+            }
+        }
+
+        if (asignaturaEncontrada == null) {
+            System.out.println("No se encontro ninguna asignatura con ese codigo.");
+            return;
+        }
+
+        System.out.print("Ingrese el valor de la nota: ");
+        double valor = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("Ingrese el periodo (ej: 2024-1): ");
+        String periodo = scanner.nextLine();
+
+        Nota nota = new Nota(estudianteEncontrado, asignaturaEncontrada, valor, periodo);
+        listaNotas.add(nota);
+
+        System.out.println("Nota registrada exitosamente.");
+        System.out.println(nota);
+    }
+    
+    
+    
+    
 }
